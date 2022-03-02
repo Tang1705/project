@@ -8,8 +8,11 @@
         let searchParams = new URLSearchParams(myURL.search);
         let project = searchParams.get('t');
 
-        if(project ==="happy-reconstruction"){
-            window.location.href="https://tang5618.com/Happy-Reconstruction/";
+        switch (project) {
+            case "happy-reconstruction":
+                window.location.href = "https://tang5618.com/Happy-Reconstruction/";
+            default:
+                window.location.href = "https://tang5618.com/";
         }
 
     </script>
