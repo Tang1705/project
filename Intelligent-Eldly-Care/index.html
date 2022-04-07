@@ -97,13 +97,13 @@
 
             <p align="justify">从历史上来看，嵌入是通过使用孪生网络（Siamese network）来解决单样本学习问题的。通过对具有对比损失（Comparative Loss）函数的孪生网络进行训练，获得了更好的性能，后来导致了 Google 在 FaceNet 系统中使用三重损失（Triplet Loss）函数，这个函数在基准人脸识别任务取得了当时最先进的结果。</p>
 
-            <p align="justify">如图所示，传统 CNN 包含卷积层、全连接层等组件，并采用 softmax 多类别分类器和多类交叉熵损失函数。</p>
+            <p align="justify">如图所示，传统 CNN 包含卷积层、全连接层等组件，并采用 Softmax 多类别分类器和多类交叉熵损失函数。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/cnn.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/cnn.png" alt="01" width="75%" height="75%"></div>
 
             <p align="justify">孪生神经网络是单样本学习中最具代表性的模型。孪生网络是由两个并行神经网络构成的架构，每个神经网络采用不同的输入，其输出被组合起来以提供一些预测。这个网络的两个子网络相同（不同则为伪孪生神经网络），两个子网络有相同的参数和权重。其目标是寻找两个可比较对象的相似程度（例如，签名验证、人脸识别等）。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/siamese.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/siamese.png" alt="01" width="70%" height="70%"></div>
 
             <p align="justify">学习像图像这样的复杂输入的向量表示就是降维的一个例子。有效降维的目标是学习一种新的低维表示，它保留了输入的结构，使得输出向量之间的距离能够有意义地捕捉到输入中的差异。然而，向量必须捕获到输入中的不变特征。降维是孪生网络用于解决单样本学习的方法。</p>
 
@@ -115,15 +115,15 @@
 
             <p align="justify">Triplet 是一个三元组，这个三元组是这样构成的：从训练数据集中随机选一个样本，该样本称为 Anchor，然后再随机选取一个和 Anchor 属于同一类的样本和不同类的样本,这两个样本对应的称为 Positive 和 Negative，由此构成一个（Anchor，Positive，Negative）三元组。损失函数对模型进行惩罚，减小匹配样本之间的距离，增加了非匹配样本之间的距离。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/triplets%20loss.png" alt="01" width="90%" height="90%"></div>
+            <div class="imgs" align="center"><img src="resources/images/triplets%20loss.png" alt="01" width="50%" height="50%"></div>
 
             <p align="justify">这种方法是 FaceNet 系统的基础。FaceNet 是一个通用的系统，可以用于人脸验证，识别和聚类，它直接学习图像到欧式空间上点的映射，两张图像所对应的特征的欧式空间上的点的距离直接对应着两个图像的相似程度。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/facenet.png" alt="01" width="90%" height="90%"></div>
+            <div class="imgs" align="center"><img src="resources/images/facenet.png" alt="01" width="60%" height="60%"></div>
 
             <p align="justify">在本系统中，人脸验证的思路是通过人脸检测器将人脸从图像中提取出来，通过Facenet 进行验证。如下图所示：</p>
 
-            <div class="imgs" align="center"><img src="resources/images/face.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/face.png" alt="01" width="75%" height="75%"></div>
 
             <p align="justify">对比了不同的人脸检测器，发现OpenCV中提供的DNN运行速度快，对遮挡等情况适用。</p>
 
@@ -165,11 +165,11 @@
             </table>
 
             <p align="justify">不同人脸检测器的效果如下图所示</p>
-            <div class="imgs" align="center"><img src="resources/images/detector.gif" alt="01" width="50%" height="50%"></div>
+            <div class="imgs" align="center"><img src="resources/images/detector.gif" alt="01" width="40%" height="40%"></div>
 
             <p align="justify">此外，从用户角度出发，在建立人脸数据库时，通过 OpenCV 和 win32com 从文字和语音方面进行操作提示。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/win32com.jpg" alt="01" width="70%" height="70%"></div>
+            <div class="imgs" align="center"><img src="resources/images/win32com.jpg" alt="01" width="50%" height="50%"></div>
 
         </section>
 
@@ -181,7 +181,7 @@
             </header>
             <p align="justify">在微笑检测上，我们使用了基于fer2013数据集的Mini-Xecption模型，该模型移除了全连接层，结合了残差模块和深度可分离卷积减少参数，达到实时检测的目的。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/mini-xception.png" alt="01" width="60%" height="60%"></div>
+            <div class="imgs" align="center"><img src="resources/images/mini-xception.png" alt="01" width="40%" height="40%"></div>
             <div style="margin-top:2em"></div>
             <p align="justify">😀 移除全连接层：VGG16 中90%的参数位于全连接层，与 AlexNet 相比，Mini-Xception 参数从 60M 减少到了 600,000</p>
             <div style="margin-top:-2em"></div>
@@ -194,7 +194,7 @@
 
             <p align="justify">综上，我们首先建立人脸数据库，通过人脸检测器提取出图片中的人脸进行处理，利用 Facenet 计算新图片中人脸与数据库中人脸的欧式距离 <a href="https://krasserm.github.io/2018/02/07/deep-face-recognition/" class="fas fa-link" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a> ，若最小值大于选定的阈值（基于 KNN 和 SVM），则发出陌生人警告，反之，若新图片中的人脸为老人，则通过 Mini-Xception 选择置信度最大的情绪识别结果。算法结构如下图所示。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/algo1.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/algo1.png" alt="01" width="80%" height="80%"></div>
 
         </section>
 
@@ -206,25 +206,25 @@
 
             <p align="justify">摔倒检测方面，从单幅图像上来看，我们可以提取出人的高度、宽度和夹角信息。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/feature.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/feature.png" alt="01" width="75%" height="75%"></div>
 
             <p align="justify">从时间序列上来看，除了上述特征，我们还可以提取出速度和加速度，摔倒行为的特征表现如图所示。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/sequence.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/sequence.png" alt="01" width="75%" height="75%"></div>
 
             <p align="justify">在 <a href="http://fivedots.coe.psu.ac.th/~kom/?p=622" class="fas fa-link" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a> 中使用的背景差分法，由于易受到摄像头摆动等因素干扰而影响测量准确度。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/bs.png" alt="01" width="90%" height="90%"></div>
+            <div class="imgs" align="center"><img src="resources/images/bs.png" alt="01" width="60%" height="60%"></div>
 
             <p align="justify">故在本项目中使用 OpenPose 提取人体关键点从而提取人体运动特征。OpenPose 是由 C++ 开发的开源库，可用于实时人体姿态估计等，为了在python 中使用，需要对其进行编译。（在 <a href="https://github.com/Tang1705/IconBattle" target="_blank" class="fab fa-github" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a> 提供了基于 Windows 10 + Python 3.7.4 + vs2017 +cmake 3.18.0 + OpenPose 1.6 + CUDA 10.0 +cudnn -10.0-windows10-x64-v7.6.5.32 的编译结果，自行编译请参考 <a href="https://blog.techbridge.cc/2019/01/18/openpose-installation/" class="fas fa-link" aria-hidden="true" style="text-indent: -0.1em;" rel="noopener noreferrer"></a> ）</p>
 
-            <div class="imgs" align="center"><img src="resources/images/kp.png" alt="01" width="80%" height="80%"></div>
+            <div class="imgs" align="center"><img src="resources/images/kp.png" alt="01" width="60%" height="60%"></div>
 
             <p align="justify">但 OpenPose 在人体姿势极端的情况下，识别准确度下降，为识别摔倒的老人通过挥手臂等方式求救，我们实现了基于人体关键点和背景差分的摔打检测算法，利用人力关键点提取出速度、高度、宽度等描述特征，当发生异常通过背景差分提取出角度特征，当特征连续多次满足摔倒检测阈值时，则发出摔倒报警。算法结构如图所示。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/algo2.png" alt="01" width="100%" height="100%"></div>
+            <div class="imgs" align="center"><img src="resources/images/algo2.png" alt="01" width="80%" height="80%"></div>
 
-            <div class="imgs" align="center"><img src="resources/images/algo2-1.png" alt="01" width="30%" height="30%"></div>
+            <div class="imgs" align="center"><img src="resources/images/algo2-1.png" alt="01" width="20%" height="20%"></div>
 
             <p align="justify">该摔倒检测算法的效果如下</p>
 
@@ -271,7 +271,7 @@
 
             <p align="justify">在禁止区域入侵监测方面，包括物体监测和物体追踪两部分。在本项目中，物体检测的目的是识别出人这个物体，而物体追踪则是追踪画面中检测到的人。在对比了不同物体检测方法（如 R-CNN、YOLO等）后，出于实时性和准确性的考虑，选择了质心跟踪算法。其算法步骤如图所示。</p>
 
-            <div class="imgs" align="center"><img src="resources/images/yl.png" alt="01" width="80%" height="80%"></div>
+            <div class="imgs" align="center"><img src="resources/images/yl.png" alt="01" width="60%" height="60%"></div>
 
 
         </section>
