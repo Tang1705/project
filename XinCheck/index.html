@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" style="background-position-y: -7%;">
+<head>
+    <title>XINCHECK ® 文本查重</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="XINCHECK 文本查重，文本查重 SDK，标书查重，论文查重，查重 SDK，查重软件，图片查重，离线查重">
+    <meta name="description"
+          content="业界认可的查重算法及查重引擎，提供易使用、易拓展、高性能的离线SDK和查重软件，可用于论文查重、标书查重/辅助串标检测、项目申报书查重、文档查重、文本去重、作业查重等多个场景">
+
+    <link rel="icon" href="https://www.xincheck.com/zb_users/upload/apple.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.xincheck.com/zb_users/upload/apple.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="resources/css/public.css">
+    <link rel="stylesheet" href="resources/css/swiper.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
+    <link rel="stylesheet" href="resources/css/layer.css">
+    <link rel="stylesheet" href="resources/css/index_new.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+
+    <link rel="stylesheet" href="resources/css/common.css">
+    <link rel="stylesheet" href="resources/css/index_entry.css">
+
+    <script type="text/javascript" src="resources/js/hm.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.tools.pack.js"></script>
+    <script type="text/javascript" src="resources/js/global.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="resources/js/layer.js"></script>
+</head>
+
+<body style="background-position-y: -7%;">
+<!-- header -->
+<div class="header-box" style="height: 802px;">
+    <!--    nav-->
+    <div class="header-nav" style="height: 120px;">
+        <div class="head-nav-box" id="head-box"
+             style="width: 1440px; line-height: 80px; height: 80px; top: 0; opacity: 1;">
+            <div class="head-nav-logo">
+                <img src="resources/image/xincheck.png" style="width: 131px" alt="XinCheck">
+            </div>
+            <div class="head-nav-list" style="width: 1080px; right: 1%;">
+                <div class="head-nav-list-l">
+                    <ul>
+                        <li class="on" style="margin-right: 40px; margin-left: 0;"><a href="."
+                                                                                      style="font-size: 15px;">首页</a>
+                        </li>
+                        <li style="margin-right: 40px; margin-left: 0;"><a href="https://www.xincheck.com"
+                                                                           style="font-size: 15px;">查重 SDK</a></li>
+                        <li style="margin-right: 40px; margin-left: 0;"><a href="https://www.xincheck.com/?cate=9"
+                                                                           style="font-size: 15px;">查重软件</a></li>
+
+                        <li style="margin-right: 40px; margin-left: 0;">
+                            <a href="https://www.xincheck.com/?id=6"
+                               style="font-size: 15px;">算法介绍</a>
+                        </li>
+
+                        <li  class="nav-more-wrap" id="nav-moreservice" style="margin-right: 40px; margin-left: 0;">
+                            <a style="position: relative; font-size: 15px;"
+                               href="https://www.xincheck.com">更新日志
+                                <img class="newHead" src="resources/image/new_head.png" alt="">
+                            </a>
+                            <div class="nav-more">
+                                <a href="https://www.xincheck.com/?id=14"
+                                   style="font-size: 15px;">SDK 更新日志</a>
+                                <a href="https://www.xincheck.com/?id=27"
+                                   style="font-size: 15px;">软件更新日志</a>
+                            </div>
+                        </li>
+                        <li style="margin-right: 40px; margin-left: 0;"><a
+                                href="https://www.paperyy.com/member_new/free" style="font-size: 15px;">申请试用</a></li>
+
+                        <li class="nav-more-wrap" id="nav-moreservice"
+                            style="margin-right: 40px; margin-left: 0;"><a href="https://www.xincheck.com/#"
+                                                                           class="more"
+                                                                           style="font-size: 15px;">软件下载</a>
+                            <div class="nav-more">
+                                <a href="https://github.com/tianlian0/duplicate-check-sample"
+                                   style="font-size: 15px;">SDK 示例代码</a>
+                                <a href="https://www.xincheck.com/zb_users/upload/2022/05/202205041651675254194413.msi"
+                                   style="font-size: 15px;">软件试用版安装包</a>
+                            </div>
+                        </li>
+                        <li id="nav-appdownLoad" style="margin-right: 40px; margin-left: 0;"><a
+                                href="https://www.xincheck.com/?id=9"
+                                style="font-size: 15px;">常见问题</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            window.onscroll = function () {
+                var sl = -Math.max(document.body.scrollLeft, document.documentElement.scrollLeft);
+                document.getElementById('head-box').style.left = sl + 'px';
+            }
+        });
+    </script>
+
+    <!--    banner-->
+    <div class="banner-box">
+        <img class="banner-box-r-img" src="resources/image/cover.svg" alt=""
+             style="width: 36rem; top:15%; margin-left: 56px; left: 50%; opacity: 1;position: absolute">
+        <div class="banner" style="padding-bottom: 80px; width: 1440px;top: 5rem;left: 10rem">
+            <div class="banner-nr-l" style="margin-left: 160px;">
+                <img class="banner-nr-l-t1" src="resources/image/slogan.png"
+                     alt="业界认可的查重算法及查重引擎，提供易使用、易拓展、高性能的离线SDK和查重软件" style="width: 854px; top: 0; opacity: 1;">
+                <div class="banner-nr-l-wzbox">
+                    <img class="banner-nr-l-t2" src="resources/images/banner_txt2_new.png" alt=""
+                         style="width: 711px; margin-top: -96px; left: -4px; top: 0; opacity: 1;">
+                    <div class="banner-nr-l-wzboxt" style="top: -43px; opacity: 1;">
+                        <div class="banner-nr-l-wzboxt-li">
+                            <p style="margin-top: 28px;"><a
+                                    href="."><img
+                                    src="resources/image/icon1.png" alt=""
+                                    style="width:1.3rem;left: 5px;margin-right: 13px;">完全离线</a>
+                            </p>
+                            <p style="margin-top: 28px;"><a
+                                    href="."><img
+                                    src="resources/image/icon2.png" alt="" style="width:1.5rem;">线性时间</a></p>
+                            <p style="margin-top: 28px;"><a href="."><img
+                                    src="resources/image/icon3.png" alt="" style="width:1.3rem;">横向查重</a></p>
+                        </div>
+                        <div class="banner-nr-l-wzboxt-li">
+                            <p style="margin-top: 28px;"><a href="."><img
+                                    src="resources/image/icon4.png" alt="" style="width:1.6rem;">黑白名单</a></p>
+                            <p style="margin-top: 28px;"><a href="."><img
+                                    src="resources/image/icon5.png" alt="" style="width:1.5rem;">算法多样</a></p>
+                            <p style="margin-top: 28px;"><a href="."><img
+                                    style="width:1.5rem;" src="resources/image/icon6.png" alt="">图像查重</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--    banner E-->
+
+</div>
+<!-- e header -->
+
+<!-- main -->
+<div class="main">
+    <div class="main-box" style="position: relative">
+
+        <!--        查重-->
+        <div class="con-main-list" style="display: block">
+            <div class="con-main-list-bk1">
+
+            </div>
+
+            <div class="con-main-list-bk2">
+                <div id="banner-tiles">
+                    <div class="wt-offset-top-48 wt-row wt-row_size_s">
+                        <div class="flex-container wt-col-8 wt-col-md-12"><a href="/zh-cn/space/"
+                                                                             class="banner-tile banner-tile_primary banner-tile_space tile-content wt-row wt-row_size_0"
+                                                                             data-gtm="link-banner"
+                                                                             data-gtm-vis-recent-on-screen-58776_2672="908"
+                                                                             data-gtm-vis-first-on-screen-58776_2672="908"
+                                                                             data-gtm-vis-total-visible-time-58776_2672="100"
+                                                                             data-gtm-vis-has-fired-58776_2672="1"
+                                                                             data-gtm-vis-recent-on-screen-58776_2732="926"
+                                                                             data-gtm-vis-first-on-screen-58776_2732="926"
+                                                                             data-gtm-vis-total-visible-time-58776_2732="100"
+                                                                             data-gtm-vis-has-fired-58776_2732="1">
+                            <div class="jb-vertical-flex__grow" style="width: 100%;">
+                                <div class="wt-row wt-row_size_0">
+                                    <div class="wt-col-8 wt-col-lg-10 wt-col-sm-12">
+                                        <h3 class="wt-offset-top-24 wt-h2 wt-h2_theme_dark">查重 SDK</h3>
+                                        <h3 class="wt-offset-top-24 wt-h2 wt-h2_theme_dark">JAVA 离线查重开发工具包</h3></div>
+                                </div>
+                                <div class="wt-row wt-row_size_0 wt-offset-top-24"><p
+                                        class="wt-col-12 wt-col-sm-12 wt-text-1 wt-text-1_hardness_hard wt-text-1_theme_dark" style="margin-top: 0.5rem">
+                                    生成详细的、多种类型的查重报告，查重报告样式可通过接口部分自定义<br/><br/>丰富的接口，完善的开发文档，开发者可以获取查重报告中的全部数据</p></div>
+                            </div>
+
+                        </a></div>
+                        <div class="flex-container wt-col-4 wt-col-md-12">
+                                <div class="flex-container wt-col-12 wt-col-md-6 wt-col-sm-12"><a href="/zh-cn/academy/"
+                                                                                                  class="wt-offset-top-12 wt-offset-top-md-48 banner-tile banner-tile_secondary banner-tile_academy tile-content"
+                                                                                                  data-gtm="link-banner"
+                                                                                                  data-gtm-vis-recent-on-screen-58776_2672="7386426"
+                                                                                                  data-gtm-vis-first-on-screen-58776_2672="7386426"
+                                                                                                  data-gtm-vis-total-visible-time-58776_2672="100"
+                                                                                                  data-gtm-vis-has-fired-58776_2672="1"
+                                                                                                  data-gtm-vis-recent-on-screen-58776_2732="7386444"
+                                                                                                  data-gtm-vis-first-on-screen-58776_2732="7386444"
+                                                                                                  data-gtm-vis-total-visible-time-58776_2732="100"
+                                                                                                  data-gtm-vis-has-fired-58776_2732="1">
+                                    <div class="jb-vertical-flex__grow banner-inner-academy">
+                                            <linearGradient id="jetbrains-academy_svg__a" gradientUnits="userSpaceOnUse"
+                                                            x1="41.286" x2="13.839" y1="41.286" y2="13.839">
+                                                <stop offset="0.233" stop-color="#21d789"></stop>
+                                                <stop offset="0.89" stop-color="#af1df5"></stop>
+                                            </linearGradient>
+                                            <path d="m56 14v42h-42z"></path>
+                                            <path d="M50.76534,50.74985H40.25191V48.43361H50.76534Z" fill="#fff"></path>
+                                            <path d="m14 56v-42h42z" fill="url(#jetbrains-academy_svg__a)"></path>
+                                        <h3 class="wt-offset-top-12 wt-h2 wt-h3_theme_dark" style="margin-top: 2rem">查重软件</h3>
+                                        <p class="wt-offset-top-12 jb-vertical-flex__grow wt-text-2 wt-text-2_hardness_hard wt-text-2_theme_dark">
+                                            由您的机构掌握的实践式编程教育。</p></div>
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="con-main-list-bk3" style="width: 1400px;">
+                <div class="list-bk3-box">
+                    <div class="list-bk3-box-l" style="position: absolute; top: 0px;">
+                        <div class="list-bk3-box-l-xbt"></div>
+                        <div class="list-bk3-box-l-select">
+                            <ul>
+                                <li class="cc-list-bk3-sel1">
+                                    <div class="bk3-box-select-img">
+                                        <img src="resources/images/index_list1_bk3_navIcon1.png">
+                                    </div>
+                                    <span class="bk3-box-txt">完全离线使用</span>
+                                </li>
+                                <li class="cc-list-bk3-sel2">
+                                    <div class="bk3-box-select-img">
+                                        <img src="resources/images/index_list1_bk3_navIcon2.png">
+                                    </div>
+                                    <span class="bk3-box-txt">线性的算法时间复杂度</span>
+                                </li>
+                                <li class="cc-list-bk3-sel3">
+                                    <div class="bk3-box-select-img">
+                                        <img src="resources/images/index_list1_bk3_navIcon3.png">
+                                    </div>
+                                    <span class="bk3-box-txt">支持自建库查重和横向查重</span>
+                                </li>
+                                <li class="cc-list-bk3-sel4">
+                                    <div class="bk3-box-select-img">
+                                        <img src="resources/images/index_list1_bk3_navIcon4.png">
+                                    </div>
+                                    <span class="bk3-box-txt">设置白名单和重点关注关键词</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="list-bk3-box-r" style="top: 38px; right: -500px; width: 857px;">
+                        <div class="sec-img-slide sec-img-slide-not1">
+                            <div class="sec-r-img1-app" style="right: 12%; top: 46%;">
+                                <div class="sec-r-img1-app-btn"><a
+                                        href="https://www.paperyy.com/yy-app-api/app/api/index">下载APP</a></div>
+                            </div>
+                            <div class="sec-r-img1-xcx" style="right: 30%; top: 79%;">
+                                <div class="sec-r-img1-xcx-btn">PaperYY 小程序</div>
+                            </div>
+                            <img src="resources/images/index_list1_bk3_icon1ws.png" alt="PaperYY支持多个终端查重"
+                                 class="sec_r_img1" style="width: 857px; margin-top: 0px;">
+                            <img src="resources/images/index_list1_bk3_icon2.png" alt="PaperYY支持多个终端查重"
+                                 class="sec_r_img_icon1" style="width: 174px; right: -35px; bottom: 90px;">
+                            <img class="sec_r_img_icon2"
+                                 src="data:image/png;base64,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"
+                                 alt="" style="width: 129px; right: 240px; bottom: 6px;">
+                        </div>
+                        <div class="sec-img-slide sec-img-slide-not2">
+                            <a class="indexToClass" href="https://www.paperyy.com/member_new/class/show" target="_blank"
+                               style="top: 56%; left: 42.5%;"></a>
+                            <img src="resources/images/index_list1_bk3_iconq2.png" alt="PaperYY可以班级组队论文查重"
+                                 class="sec_r_img1 sec_r_imgx2" style="width: 857px; margin-top: 0px;">
+                        </div>
+                        <div class="sec-img-slide sec-img-slide-not3">
+                            <img src="resources/images/index_list1_bk3_icon4.png" class="sec_r_img1"
+                                 style="width: 857px; margin-top: 0px;">
+                        </div>
+                        <div class="sec-img-slide sec-img-slide-last sec-img-slide-not4"
+                             style="margin-left: 111px;margin-bottom: 0">
+                            <img src="resources/images/index_list1_bk3_iconq3.png" alt="PaperYY论文查重的优惠套餐"
+                                 style="width: 643px; margin-top: 160px;" class="sec_r_img1 sec_r_imgx1">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="con-main-list-bk4" style="position: relative">
+                <img src="resources/image/index_bg_icon2.png" alt="" class="index-bg-icon2">
+                <div class="list-bk4-box">
+                    <div class="list-bk4-box-l">
+                        <img src="resources/image/partner.png" alt="" style="width: 40rem">
+                    </div>
+                    <div class="list-bk4-box-r" style="margin-top: 20rem">
+                        <div class="list-bk4-box-r-xbt">
+                            XINCHECK ® 文本查重
+                        </div>
+                        <div class="list-bk4-box-r-nr" style="font-size: 18pt">多家高校、科研机构、信息技<br/>术企业等选择的查重解决方案</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        查重   e-->
+
+
+    </div>
+</div>
+
+<!--返回顶部-->
+<div class="setup-box">
+    <div class="setup-box-wx">
+        <img src="resources/image/setup_icon.png" alt="">
+        客服
+        <img src="resources/image/wechat.jpg" alt="" class="pubWechatSrc">
+    </div>
+    <div class="setup-box-top">
+        <i></i>
+        TOP
+    </div>
+</div>
+
+<!-- e main -->
+<!-- footer -->
+<!-- website config-->
+<!-- site info -->
+
+<!-- 底部 -->
+<div class="footer-new footer-style">
+    <div class="footer-box" style="width: 1400px;">
+        <div class="foo-l">
+            <div class="foo-t">
+                <div style="width: 460px;">
+                    <ul>
+                        <li class="foo-t-xbt">联系我们</li>
+                        <li class="foo-t-x"></li>
+                        <li>商务合作（QQ）：3158035203 / 1253332375</li>
+                        <li>邮箱：contact@xincheck.com</li>
+                        <li>公司地址：北京市海淀区高梁桥斜街44号一区89号楼13层13B-133</li>
+                        <li>客服电话：18701138792 / 18810760681</li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- e footer -->
+
+
+<!--<script type="text/javascript" src="resources/images/idangerous.swiper.min.js"></script>-->
+
+<!--<script type="text/javascript" src="resources/js/swfobject.min.js"></script>-->
+<!--<script type="text/javascript" src="resources/js/jwplayer.js"></script>-->
+<!--<script type="text/javascript" src="resources/js/jwplayer.html5.js"></script>-->
+<!--<script type="text/javascript" src="resources/js/jwpsrv.js"></script>-->
+
+
+<script>
+    var _cdn = 'https://staticxin.paperyy.com';
+    var _version = '202204080820';
+</script>
+
+<!--<script type="text/javascript" src="https://staticxin.paperyy.com/static/js/jquery.qrcode.min.js?202204080820"></script>-->
+<script type="text/javascript" src="resources/js/count.js"></script>
+<script type="text/javascript" src="resources/js/index_new.js"></script>
+
+
+</body>
+</html>
