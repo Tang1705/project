@@ -265,13 +265,10 @@ html[lang=ru] .product-card__icon_kotlin {
 }
 
 .banner-tile_space {
-    /*background-image: url(../image/bg1.png);*/
     background-image: url(../image/bg.svg);
     background-repeat: no-repeat;
-    background-position: 45% 0;
-    background-size: 150%;
-    /*background-position:12rem 8rem*/
-
+    background-position: -10% ;
+    background-size: 120%;
 }
 
 @media screen and (max-width: 1276px) {
