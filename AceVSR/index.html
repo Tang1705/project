@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank of Video Super-Resolution</title>
+    <link rel="icon" href="https://vipixel.net/icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>视频超分辨率性能排行榜</h1>
+        <p class="subtitle">视频超分辨率 (Video Super-Resolution, VSR) 算法在合成数据集上的客观重建结果</p>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="methodCount">0</div>
+                <div class="stat-label">对比算法</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">3</div>
+                <div class="stat-label">数据集</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="minParams">-</div>
+                <div class="stat-label">最小模型</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="maxParams">-</div>
+                <div class="stat-label">最大模型</div>
+            </div>
+            <div class="stat-item">
+                <div class="top-methods" id="topMethodsContainer">
+                    <!-- 动态填充前三名 -->
+                </div>
+                <div class="stat-label" style="margin-top: 0.5rem">Top 3 Methods</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="搜索方法名称...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group"></i> 全部方法
+                </button>
+                <button class="filter-btn" data-filter="recent">
+                    <i class="fas fa-star"></i> 最新方法 (2023-2025)
+                </button>
+                <button class="filter-btn" data-filter="top">
+                    <i class="fas fa-trophy"></i> 顶尖性能
+                </button>
+                <button class="filter-btn" data-filter="lightweight">
+                    <i class="fas fa-bolt"></i> 轻量模型 (<10M)
+                </button>
+            </div>
+        </div>
+
+        <div class="dataset-controls">
+            <div class="dataset-label">
+                <i class="fas fa-sort-amount-down"></i> 当前排名依据：
+            </div>
+            <div class="dataset-buttons">
+                <button class="dataset-btn active" data-dataset="overall">
+                    <i class="fas fa-trophy"></i> 整体性能
+                </button>
+                <button class="dataset-btn" data-dataset="reds4">
+                    <i class="fas fa-database"></i> REDS4
+                </button>
+                <button class="dataset-btn" data-dataset="vimeo">
+                    <i class="fas fa-database"></i> Vimeo-90K-T
+                </button>
+                <button class="dataset-btn" data-dataset="vid4">
+                    <i class="fas fa-database"></i> Vid4
+                </button>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color legend-first"></div>
+                <span>第一名</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-second"></div>
+                <span>第二名</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-third"></div>
+                <span>第三名</span>
+            </div>
+            <div class="legend-item">
+                <span><span class="rank-sup rank-sup-other">4+</span></span>
+                <span>其他排名</span>
+            </div>
+        </div>
+
+        <div class="ranking-explanation">
+            <h3><i class="fas fa-info-circle"></i> 排名说明</h3>
+            <p>排名基于以下规则：</p>
+            <ul>
+                <li><strong>整体排名</strong>：基于加权平均计算，REDS4 (0.4)、Vimeo-90K-T (0.3)、Vid4 (0.2)、Penalty (0.1)</li>
+                <li><strong>数据集排名</strong>：基于所选数据集的 PSNR 和 SSIM 平均值计算</li>
+                <li><strong>指标排名</strong>：每个指标独立排名，相同值获得相同排名</li>
+                <li><strong>数据缺失</strong>：缺少数据的指标/方法会受到排名惩罚（按三个数据集都包含的方法数量+1计算）</li>
+                <li><strong>排名标注</strong>：每个性能指标后的<span class="rank-sup rank-sup-1">1</span>、<span class="rank-sup rank-sup-2">2</span>等角标表示该指标在对应数据集上的排名</li>
+                <li><strong>Bicubic 基准</strong>：Bicubic 方法作为基准，强制排在所有方法的最后</li>
+            </ul>
+        </div>
+
+        <div class="ranking-notice">
+            <i class="fas fa-sync-alt"></i> 点击数据集按钮可切换不同数据集的排名视图
+        </div>
+
+        <div class="table-container">
+            <table id="vsrTable">
+                <thead>
+                <tr>
+                    <th data-sort="rank">排名 <i class="fas fa-sort"></i></th>
+                    <th data-sort="method">方法</th>
+                    <th data-sort="frames">帧数</th>
+                    <th data-sort="params">参数量(M) <i class="fas fa-sort"></i></th>
+                    <th class="metric-header" data-sort="reds4_psnr">
+                        REDS4  <i class="fas fa-sort"></i>
+                        <span class="metric-subheader">PSNR / SSIM</span>
+                    </th>
+                    <th class="metric-header" data-sort="vimeo_psnr">
+                        Vimeo-90K-T  <i class="fas fa-sort"></i>
+                        <span class="metric-subheader">PSNR / SSIM</span>
+                    </th>
+                    <th class="metric-header" data-sort="vid4_psnr">
+                        Vid4  <i class="fas fa-sort"></i>
+                        <span class="metric-subheader">PSNR / SSIM</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                <tr><td colspan="7" class="loading"><i class="fas fa-circle-notch fa-spin"></i><br>加载数据中，请稍候...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>数据来源：基于深度学习的视频超分辨率重建算法进展等 | 最后更新：2025年7月</p>
+            <div class="footer-links">
+                <a href="http://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c240235" target="_blank">
+                    <i class="fas fa-book-open"></i> 自动化学报
+                </a>
+                <a href="https://github.com/CMLab-Korea/Awesome-Video-Frame-Interpolation" target="_blank">
+                    <i class="fab fa-github"></i> 视频插帧
+                </a>
+                <a href="https://github.com/ChaofWang/Awesome-Super-Resolution" target="_blank">
+                    <i class="fas fa-star"></i> 超分辨率重建
+                </a>
+            </div>
+            <p>© 2025 视频超分辨率研究社区 | 本页面仅用于学术研究</p>
+        </footer>
+    </div>
+</div>
+
+<script src="render.js"></script>
+</body>
+</html>
