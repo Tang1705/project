@@ -1034,5 +1034,33 @@
     "vid4_psnr": "24.50",
     "vid4_ssim": "0.7023",
     "year": 2019
+  },
+  {
+    "method": "DATA-VSR",
+    "reference": "https://ieeexplore.ieee.org/abstract/document/10890509",
+    "link": "",
+    "frames": "-",
+    "params": "4.24",
+    "reds4_psnr": "31.55",
+    "reds4_ssim": "0.8934",
+    "vimeo_psnr": "37.19",
+    "vimeo_ssim": "0.9452",
+    "vid4_psnr": "27.46",
+    "vid4_ssim": "0.8303",
+    "year": 2025
+  },
+  {
+    "method": "SkipVSR",
+    "reference": "https://dl.acm.org/doi/10.1145/3664647.3681637",
+    "link": "",
+    "frames": "-",
+    "params": "4.9",
+    "reds4_psnr": "30.60",
+    "reds4_ssim": "0.8726",
+    "vimeo_psnr": "36.39",
+    "vimeo_ssim": "0.9365",
+    "vid4_psnr": "26.54",
+    "vid4_ssim": "0.7924",
+    "year": 2025
   }
 ]
