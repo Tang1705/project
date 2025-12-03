@@ -10,7 +10,7 @@
     "vimeo_psnr": "38.25",
     "vimeo_ssim": "0.9534",
     "vid4_psnr": "28.03",
-    "vid4_ssim": "0.8462,
+    "vid4_ssim": "0.8462",
     "year": 2025
   },  
   {
@@ -24,7 +24,7 @@
     "vimeo_psnr": "37.48",
     "vimeo_ssim": "0.9470",
     "vid4_psnr": "27.52",
-    "vid4_ssim": "0.8299,
+    "vid4_ssim": "0.8299",
     "year": 2024
   },  
   {
@@ -38,7 +38,7 @@
     "vimeo_psnr": "-",
     "vimeo_ssim": "-",
     "vid4_psnr": "27.17",
-    "vid4_ssim": "0.8209,
+    "vid4_ssim": "0.8209",
     "year": 2025
   },
      {
